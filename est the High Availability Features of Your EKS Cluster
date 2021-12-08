@@ -1,0 +1,57 @@
+Test the High Availability Features of Your EKS Cluster
+
+    In the AWS console, on the EC2 instances page, select the three t3.micro instances.
+
+    Click Actions > Instance State > Stop.
+
+    In the dialog, click Yes, Stop.
+
+    After a few minutes, we should see EKS launching new instances to keep our service running.
+
+    In the CLI, check the status of our nodes:
+
+    # kubectl get node
+
+    All the nodes should be down (i.e., display a NotReady status).
+
+    Check the pods:
+
+   # kubectl get pod
+
+    We'll see a few different statuses — Terminating, Running, and Pending — because, as the instances shut down, EKS is trying to restart the pods.
+
+    Check the nodes again:
+
+   # kubectl get node
+
+    We should see a new node, which we can identify by its age.
+
+    Wait a few minutes, and then check the nodes again:
+
+    # kubectl get node
+
+    We should have one in a Ready state.
+
+    Check the pods again:
+
+    # kubectl get pod
+
+    We should see a couple pods are now running as well.
+
+    Check the service status:
+
+    # kubectl get service
+
+    Copy the external DNS Hostname listed in the output.
+
+    Access the application using the load balancer, replacing <LOAD_BALANCER_DNS_HOSTNAME> with the DNS Hostname you just copied:
+
+    # curl "<LOAD_BALANCER_EXTERNAL_IP>"
+
+    We should see the Nginx web page HTML again. (If you don't, wait a few more minutes.)
+
+    In a new browser tab, navigate to the same IP, where we should again see the Nginx web page.
+
+    In the CLI, delete everything:
+
+    # eksctl delete cluster dev
