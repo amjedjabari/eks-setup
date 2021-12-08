@@ -1,0 +1,59 @@
+    Create a Deployment on Your EKS Cluster
+
+    Install Git:
+
+    # sudo yum install -y git
+
+    Download the course files:
+
+    # git clone https://github.com/amjedjabari/eks-setup.git
+
+    Change directory:
+
+    # cd eks-setup
+
+    Take a look at the deployment file:
+
+    # cat nginx-deployment.yaml
+
+    Take a look at the service file:
+
+    # cat nginx-svc.yaml
+
+    Create the service:
+
+    # kubectl apply -f ./nginx-svc.yaml
+
+    Check its status:
+
+    # kubectl get svc
+    
+    Copy the external DNS hostname of the load balancer, and paste it into a text file, as we'll need it in a minute.
+
+    Create the deployment:
+
+    # kubectl apply -f ./nginx-deployment.yaml
+
+    Check its status:
+
+    # kubectl get deployment
+
+    View the pods:
+
+    # kubectl get pod
+
+    View the ReplicaSets:
+
+    # kubectl get rs
+
+    View the nodes:
+
+    # kubectl get node
+
+    Access the application using the load balancer, replacing <LOAD_BALANCER_DNS_HOSTNAME> with the IP you copied earlier:
+
+    # curl "<LOAD_BALANCER_DNS_HOSTNAME>"
+
+    The output should be the HTML for a default Nginx web page.
+
+    In a new browser tab, navigate to the same IP, where we should then see the same Nginx web page.
