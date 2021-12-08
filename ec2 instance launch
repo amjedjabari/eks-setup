@@ -1,0 +1,24 @@
+Launch an EC2 Instance and Configure the Command Line Tools, optionally you can use your workstation as long as you are able to install the required tool.
+
+    Navigate to EC2 > Instances.
+    Click Launch Instance.
+    On the AMI page, select the Amazon Linux 2 AMI.
+    Leave t2.micro selected, and click Next: Configure Instance Details.
+    On the Configure Instance Details page:
+        Network: Leave default
+        Subnet: Leave default
+        Auto-assign Public IP: Enable
+    Click Next: Add Storage > Next: Add Tags > Next: Configure Security Group.
+    Click Review and Launch, and then Launch.
+    In the key pair dialog, select Create a new key pair.
+    Give it a Key pair name of "mynvkp".
+    Click Download Key Pair, and then Launch Instances.
+    Click View Instances, and give it a few minutes to enter the running state.
+    Once the instance is fully created, check the checkbox next to it and click Connect at the top of the window.
+    In the Connect to your instance dialog, select EC2 Instance Connect (browser-based SSH connection).
+    Click Connect.
+    
+    If you prefer to connect with SSH instead, use the private key "mynvkp" to connect, example:
+    # ssh -i mynvkp ec2-user@PUBLIC-IP
+    
+    
