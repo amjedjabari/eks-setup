@@ -1,0 +1,44 @@
+    Provision an EKS cluster with three worker nodes in us-east-1:
+
+    # eksctl create cluster --name dev --version 1.21 --region us-east-1 --nodegroup-name standard-workers --node-type t3.micro --nodes 3 --nodes-min 1 --nodes-max 4 --managed
+
+    It will take 10–15 minutes since it's provisioning the control plane and worker nodes, attaching the worker nodes to the control plane, and creating the VPC, security group, and Auto Scaling group.
+
+    In the AWS Management Console, navigate to CloudFormation and take a look at what’s going on there.
+
+    Select the eksctl-dev-cluster stack (this is our control plane).
+
+    Click Events, so you can see all the resources that are being created.
+
+    We should then see another new stack being created — this one is our node group.
+
+    Once both stacks are complete, navigate to Elastic Kubernetes Service > Clusters.
+
+    Click the listed cluster.
+
+    Click the Compute tab, and then click the listed node group. There, we'll see the Kubernetes version, instance type, status, etc.
+
+    Click dev in the breadcrumb navigation link at the top of the screen.
+
+    Click the Networking tab, where we'll see the VPC, subnets, etc.
+
+    Click the Logging tab, where we'll see the control plane logging info.
+        The control plane is abstracted — we can only interact with it using the command line utilities or the console. It’s not an EC2 instance we can log into and start running Linux commands on.
+
+    Navigate to EC2 > Instances, where you should see the instances have been launched.
+
+    Close out of the existing CLI window, if you still have it open.
+
+    Select the original t2.micro instance, and click Connect at the top of the window.
+
+    In the Connect to your instance dialog, select EC2 Instance Connect (browser-based SSH connection).
+
+    Click Connect.
+
+    In the CLI, check the cluster:
+
+   # eksctl get cluster
+
+    Enable it to connect to our cluster:
+
+   # aws eks update-kubeconfig --name dev --region us-east-1
