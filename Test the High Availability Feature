@@ -14,11 +14,12 @@ Test the High Availability Features of Your EKS Cluster
 
     All the nodes should be down (i.e., display a NotReady status).
 
-    Check the pods:
+    Check the pods using `watch -n` option:
 
-   # kubectl get pod
+   # watch -n 1 kubectl get pod
 
     We'll see a few different statuses — Terminating, Running, and Pending — because, as the instances shut down, EKS is trying to restart the pods.
+    use CTRL + C to break out of watch command output.
 
     Check the nodes again:
 
@@ -52,6 +53,6 @@ Test the High Availability Features of Your EKS Cluster
 
     In a new browser tab, navigate to the same IP, where we should again see the Nginx web page.
 
-    In the CLI, delete everything:
-
-    # eksctl delete cluster dev
+    Summary, high availability is one of the greate features of AWS EKS!
+    
+    Thank you,
