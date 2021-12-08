@@ -1,0 +1,13 @@
+Create an IAM User with Admin Permissions
+
+    Navigate to IAM > Users.
+    Click Add user.
+    Set the following values:
+        User name: k8-admin
+        Access type: Programmatic access
+    Click Next: Permissions.
+    Select Attach existing policies directly.
+    Select AdministratorAccess.
+    Click Next: Tags > Next: Review.
+    Click Create user.
+    Copy the access key ID and secret access key, and paste them into a text file, as we'll need them in the next step.
