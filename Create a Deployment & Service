@@ -1,14 +1,14 @@
->   Create a Deployment on Your EKS Cluster.
+    Create a Deployment on Your EKS Cluster.
 
->   Install Git:
+    Install Git:
 
     # sudo yum install -y git
 
->  Download the course files:
+    Download the course files:
 
     # git clone https://github.com/amjedjabari/eks-setup.git
 
-   > Change directory:
+    Change directory:
 
     # cd eks-setup
 
