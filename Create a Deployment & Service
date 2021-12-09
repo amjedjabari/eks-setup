@@ -1,5 +1,4 @@
-  ```
-  Create a Deployment on Your EKS Cluster.
+  # Create a Deployment on Your EKS Cluster.
 
     Install Git:
 
@@ -58,4 +57,4 @@
     The output should be the HTML for a default Nginx web page.
 
     In a new browser tab, navigate to the same IP, where we should then see the same Nginx web page.
-```
+
