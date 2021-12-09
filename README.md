@@ -5,4 +5,4 @@ B-: ec2 instance launch
 C-: Tools to install and configure
 D-: Provision EKS Cluster 
 E-: Create a Deployment & Service
-F-: Test the High Availability Feature```
+F-: Test the High Availability Feature
