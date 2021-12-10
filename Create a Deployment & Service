@@ -4,7 +4,7 @@
 
     # sudo yum install -y git
 
-    Download the course files:
+    Download the repo files:
 
     # git clone https://github.com/amjedjabari/eks-setup.git
 
